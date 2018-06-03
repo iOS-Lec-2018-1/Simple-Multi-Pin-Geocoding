@@ -41,9 +41,11 @@ class ViewController: UIViewController {
             }
             if let placemarks = placemarks {
                 let placemark = placemarks[0]
+                
                 let loc = placemark.location?.coordinate
-                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                let region = MKCoordinateRegionMake(loc!, span)
+//                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//                let region = MKCoordinateRegionMake(loc!, span)
+                let region = MKCoordinateRegionMakeWithDistance(loc!, 0.05, 0.05)
                 self.myMapView.setRegion(region, animated: true)
                 
                 // annoation
