@@ -39,11 +39,21 @@ class ViewController: UIViewController {
                     annotation.coordinate = loc.coordinate
                     annotation.title = addr
                     self.annotations.append(annotation)
+//                    print(self.annotations)
+        
                     self.myMapView.addAnnotations(self.annotations)
-                    self.myMapView.showAnnotations(self.annotations, animated: true)
+//                    self.myMapView.showAnnotations(self.annotations, animated: true)
+                    
+                    // zoom level
+                    let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 700, 700)
+                    self.myMapView.setRegion(region, animated: true)
+                    //self.myMapView.selectAnnotation(self.annotations[3], animated: true)
+                    self.myMapView.selectAnnotation(self.annotations[0], animated: true)
+
                 }
             }
         }
+
     }
 }
 
